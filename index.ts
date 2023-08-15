@@ -25,21 +25,23 @@ const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 100, // limit each IP to 100 requests per windowMs
 });
+
 app.use(limiter);
 
 // Restrictive CORS settings
 const corsOptions = {
-  origin: 'https://edward-codes.tez',
-  optionsSuccessStatus: 200
+  origin: "https://edward-codes.tez",
+  optionsSuccessStatus: 200,
 };
 
 app.use(cors(corsOptions));
 
-apiRouter.post("/send-email", 
+apiRouter.post(
+  "/send-email",
   [
-    body('name').isString().notEmpty(),
-    body('email').isEmail(),
-    body('message').isString().notEmpty()
+    body("name").isString().notEmpty(),
+    body("email").isEmail(),
+    body("message").isString().notEmpty(),
   ],
   async (req: express.Request, res: express.Response) => {
     const errors = validationResult(req);
@@ -71,18 +73,18 @@ apiRouter.post("/send-email",
     };
 
     try {
-  await transporter.sendMail(mailOptions);
-  res.status(200).send({ success: true });
-} catch (error) {
-  if (error instanceof Error) {
-    console.error("Error sending email:", error.message);
-  } else {
-    console.error("Error sending email:", error);
-  }
-  res.status(500).send({ error: "Something went wrong" });
-}
-
-});
+      await transporter.sendMail(mailOptions);
+      res.status(200).send({ success: true });
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error("Error sending email:", error.message);
+      } else {
+        console.error("Error sending email:", error);
+      }
+      res.status(500).send({ error: "Something went wrong" });
+    }
+  },
+);
 
 app.use("/api", apiRouter);
 
