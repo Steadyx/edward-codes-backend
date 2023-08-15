@@ -6,12 +6,14 @@ phases:
       - echo Installing source NPM dependencies...
       - npm install
       - npm install -g typescript
+    install:
+      runtime-versions:
+        nodejs: 19.8.1
   build:
     commands:
       - echo Building the TypeScript project...
       - tsc
 artifacts:
   files:
-    - '**/*'
-  base-directory: './dist' # assuming your tsconfig.json outputs to a 'dist' directory
-
+    - "**/*"
+  base-directory: "./dist" # assuming your tsconfig.json outputs to a 'dist' directory
