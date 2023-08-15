@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Installing source NPM dependencies...
+      - npm install
+      - npm install -g typescript
+  build:
+    commands:
+      - echo Building the TypeScript project...
+      - tsc
+artifacts:
+  files:
+    - '**/*'
+  base-directory: './dist' # assuming your tsconfig.json outputs to a 'dist' directory
+
