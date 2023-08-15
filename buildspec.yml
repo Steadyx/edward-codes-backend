@@ -14,3 +14,7 @@ phases:
       - cp Procfile dist/
       - cp buildspec.yml dist/
 
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'dist/'
