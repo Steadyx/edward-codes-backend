@@ -2,13 +2,12 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      nodejs: 19.8.1
     commands:
       - echo Installing source NPM dependencies...
       - npm install
       - npm install -g typescript
-    install:
-      runtime-versions:
-        nodejs: 19.8.1
   build:
     commands:
       - echo Building the TypeScript project...
