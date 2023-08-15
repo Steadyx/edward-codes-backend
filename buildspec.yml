@@ -3,14 +3,14 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 19.8.1
+      nodejs: 18
     commands:
-      - echo Installing source NPM dependencies...
+      - echo installing source npm dependencies...
       - npm install
       - npm install -g typescript
   build:
     commands:
-      - echo Building the TypeScript project...
+      - echo building the typescript project...
       - tsc
 artifacts:
   files:
