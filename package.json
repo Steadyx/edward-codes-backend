@@ -2,11 +2,11 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
-    "start": "ts-node index.ts",
-    "start:dev": "NODE_ENV=development node_modules/.bin/ts-node index.ts",
-    "start:prod": "NODE_ENV=production node_modules/.bin/ts-node index.ts",
+    "start": "./node_modules/.bin/ts-node index.ts",
+    "start:dev": "NODE_ENV=development ./node_modules/.bin/ts-node index.ts",
+    "start:prod": "NODE_ENV=production ./node_modules/.bin/ts-node index.ts",
     "build": "tsc && cp package.json dist/ && cp package-lock.json dist/ && cp Procfile dist/ && cp buildspec.yml dist/"
   },
   "keywords": [],
