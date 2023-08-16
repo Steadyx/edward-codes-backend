@@ -40,8 +40,10 @@ const limiter = rateLimit({
 app.use(limiter);
 
 const corsOptions = {
-  optionsSuccessStatus: 200,
-  origin: 'https://main.d34dhaiw40ratc.amplifyapp.com/'
+  origin: 'https://main.d34dhaiw40ratc.amplifyapp.com',
+  methods: 'GET,POST,PUT,DELETE',
+  allowedHeaders: 'Content-Type,Authorization',
+
 };
 
 app.use(cors(corsOptions));
