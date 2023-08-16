@@ -5,16 +5,14 @@ phases:
     commands:
       - echo Installing dependencies...
       - npm install
+
   build:
-    commands:
-      - echo building the typescript project...
-      - ./node_modules/.bin/tsc
-      - cp package.json dist/
-      - cp package-lock.json dist/
-      - cp Procfile dist/
-      - cp buildspec.yml dist/
+    commands: npm run build
 
 artifacts:
   files:
-    - '**/*'
-  base-directory: 'dist/'
+    - dist/**/*
+    - package.json
+    - package-lock.json
+    - Procfile
+    - node_modules/**/*
