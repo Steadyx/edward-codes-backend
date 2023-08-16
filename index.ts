@@ -15,12 +15,7 @@ const app = express();
 const apiRouter = express.Router();
 
 
-const credentials = new AWS.Credentials({
-  accessKeyId: 'AKIAYWZVCIJA7HQKF43R',
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || '',
-});
 
-AWS.config.credentials = credentials;
 AWS.config.update({ region: "eu-west-2" });
 
 const ssm = new AWS.SSM();
