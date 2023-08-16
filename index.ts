@@ -39,6 +39,7 @@ app.use(limiter);
 
 const corsOptions = {
   optionsSuccessStatus: 200,
+  origin: 'https://main.d1ilgi3cy6utbj.amplifyapp.com'
 };
 
 app.use(cors(corsOptions));
