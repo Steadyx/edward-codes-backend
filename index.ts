@@ -21,9 +21,10 @@ const credentials = new AWS.Credentials({
 });
 
 
-const ssm = new AWS.SSM();
 AWS.config.credentials = credentials;
 AWS.config.update({ region: "eu-west-2" });
+
+const ssm = new AWS.SSM();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
