@@ -15,7 +15,12 @@ const app = express();
 const apiRouter = express.Router();
 
 
+const credentials = new AWS.Credentials({
+  accessKeyId: 'AKIAYWZVCIJA7HQKF43R',
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || '',
+});
 
+AWS.config.credentials = credentials;
 AWS.config.update({ region: "eu-west-2" });
 
 const ssm = new AWS.SSM();
@@ -135,7 +140,7 @@ fetchAllConfigurations().then((config) => {
 
   app.use("/api", apiRouter);
 
-  const PORT = process.env.PORT || 5000;
+  const PORT = 8080;
 
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
